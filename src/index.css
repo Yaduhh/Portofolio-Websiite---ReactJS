@@ -1,13 +1,120 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.designer {
+  color: transparent;
+  -webkit-text-stroke: 0.5px white;
+  text-stroke: 0.5px white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  scroll-behavior: smooth;
 }
+
+.animate-spin {
+  animation: spin 4s linear infinite;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #76E874;
+  transition: width 0.3s ease;
+  margin-bottom: -5px;
+}
+
+.nav-item-active:after {
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateIcon {
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+.close-icon {
+  transition: transform 0.3s ease;
+}
+
+.rotate-close {
+  transform: rotate(90deg);
+}
+
+.mobile-menu {
+  animation: slideInFromTop 0.3s ease-out;
+}
+
+.mobile-menu-hidden {
+  display: none;
+}
+
+.navbar-visible {
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-hidden {
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.5px;
+  background: #76E874;
+  transform-origin: 0%;
+  z-index: 100;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  background: #1B1D1A;
+  -webkit-border-radius: 0ex;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #76E874;
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+  background: #fff3;
+}
+
+
